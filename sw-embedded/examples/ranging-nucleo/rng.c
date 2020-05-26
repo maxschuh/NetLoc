@@ -108,13 +108,13 @@ PROCESS_THREAD(range_process, ev, data) {
 	dw1000_configure(&radio_config);
 	//dwt_setpreambledetecttimeout(0xfff0);
 
-	if (linkaddr_node_addr.u8[0] == 0xa5 && linkaddr_node_addr.u8[1] == 0x23) {
-		dst_.u8[0] = 0x34; // I am A, dst is node B
-		dst_.u8[1] = 0xc6;
+	if (linkaddr_node_addr.u8[0] == 0x94 && linkaddr_node_addr.u8[1] == 0x03) {
+		dst_.u8[0] = 0x10; // I am A, dst is node B
+		dst_.u8[1] = 0xc7;
 	} else {
 	    linkaddr_copy(&dst_, &linkaddr_node_addr);
-		dst_.u8[0] = 0xa5; // I am B, dst is node A
-		dst_.u8[1] = 0x23;
+		dst_.u8[0] = 0x94; // I am B, dst is node A
+		dst_.u8[1] = 0x03;
 	}
 
 	PRINTDEBUG("my address is 0x%02x 0x%02x\n", linkaddr_node_addr.u8[0],
