@@ -92,6 +92,11 @@ static bool auto_ack_enabled;
 static bool wait_ack_txdone;
 static volatile bool tx_done; /* flag indicating the end of TX */
 static bool dw1000_is_on; /* 0 if radio is off, non-zero if radio is on */
+
+uint8_t cir_buffer[CIR_BUF_LEN];
+dwt_rxdiag_t dw1000_diagnostics;
+uint8_t dummy_ack[3];
+linkaddr_t unicast_rng_addr;
 /*---------------------------------------------------------------------------*/
 PROCESS(dw1000_process, "DW1000 driver");
 #if DEBUG
@@ -826,7 +831,7 @@ PROCESS_THREAD(dw1000_process, ev, data)
          */
         dw1000_last_lqi = 107;
         float C = (float)(((uint32_t)dw1000_diagnostics.maxGrowthCIR) << 17);
-        float A = (DW1000_CONF_PRF == DWT_PRF_64M) ? 113.77f : 121.74f;
+        float A = (DW1000_PRF == DWT_PRF_64M) ? 113.77f : 121.74f;
         dw1000_last_rssi = 10.0f * (log10f(C) -
                 log10f(dw1000_diagnostics.rxPreamCount * dw1000_diagnostics.rxPreamCount))
                 - A;

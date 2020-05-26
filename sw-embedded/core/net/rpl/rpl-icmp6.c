@@ -56,7 +56,8 @@
 #include "net/ipv6/multicast/uip-mcast6.h"
 #include "random.h"
 
-#include "dev/dw1000/dw1000.h"
+//#include "dev/dw1000/dw1000.h"
+#include "dw1000.h"
 
 #include <limits.h>
 #include <string.h>

@@ -9,8 +9,9 @@
 /*---------------------------------------------------------------------------*/
 #include "contiki.h"
 
-#include "st-lib.h"
+#include "platform/stm32nucleo-dw1000/st-lib.h"
 #include "stm32l1xx_hal.h"
+
 /* Exported types ------------------------------------------------------------*/
 /* MCU GPIO pin working mode for GPIO */
 typedef enum

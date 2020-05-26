@@ -38,7 +38,7 @@
  */
 
 #include "dw1000.h"
-#include "dw1000-arch.h"
+#include "platform/stm32nucleo-dw1000/dev/dw1000-arch.h"
 #include "core/net/linkaddr.h"
 
 #include "process.h" /* process_event_t */

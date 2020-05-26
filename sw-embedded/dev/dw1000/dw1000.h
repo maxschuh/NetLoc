@@ -185,8 +185,8 @@
  * --> DW1000_Software_API_Guide_rev2p4 c.5.54
  */
 #define CIR_BUF_LEN 257
-uint8_t cir_buffer[CIR_BUF_LEN];
-dwt_rxdiag_t dw1000_diagnostics;
+extern uint8_t cir_buffer[];
+extern dwt_rxdiag_t dw1000_diagnostics;
 #endif /* DW1000_READ_RXDIAG */
 static volatile radio_value_t dw1000_last_lqi;
 static volatile radio_value_t dw1000_last_rssi;
@@ -208,8 +208,8 @@ void prettyPrintSysStatus(uint32_t r1, uint8_t r2);
 
 void dw1000_receive_ranging_uc(const dwt_cb_data_t *cb_data);
 void dw1000_receive_ranging_ack(const dwt_cb_data_t *cb_data);
-uint8_t dummy_ack[3];
-linkaddr_t unicast_rng_addr;
+extern uint8_t dummy_ack[];
+extern linkaddr_t unicast_rng_addr;
 
 /**
  * @fn calculateFrameLengthUs
